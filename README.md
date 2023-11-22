@@ -1,4 +1,5 @@
 **Work in progress**
+--OUTDATED--
 El proceso para crear el Codificador César ha sido el siguiente:
 
 Creamos la clase Codificador, la cual tiene tres atributos: 
