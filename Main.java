@@ -29,6 +29,29 @@ public class Main {
             System.out.println("");
         } while (continuar);
 
+        //PRUEBAS A MANO
+
+        iLlave = 366;
+
+        System.out.println("--------------------------");
+
+        c1 = new Codificador("AbC012");
+        System.out.printf("Texto original: %s\n", c1.getTextoOriginal());
+        texto = c1.codificaDecodifica(iLlave);
+        System.out.printf("Texto codificado: %s\n---\n", texto);
+
+        c1 = new Codificador("AbC012");
+        System.out.printf("Texto original: %s\n", c1.getTextoOriginal());
+        texto = c1.codificaDecodifica(-iLlave);
+        System.out.printf("Texto codificado: %s\n---\n", texto);
+
+        c1 = new Codificador("xYz789");
+        System.out.printf("Texto original: %s\n", c1.getTextoOriginal());
+        texto = c1.codificaDecodifica(iLlave);
+        System.out.printf("Texto codificado: %s\n", texto);
+
+        System.out.print("--------------------------");
+
         //System.out.print("Finalizando el programa...");
     }
 }

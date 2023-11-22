@@ -27,55 +27,36 @@ public class Codificador {
     public String codificaDecodifica(int iLlave) {
         char[] textArr = this.textoOriginal.toCharArray();
         char[] alf;
-        int index;
+        int index, numConv=iLlave;
 
         for (int i = 0; i < textArr.length; i++) {
-            if (Character.isDigit(textArr[i]) && iLlave > 0) {
+            if (Character.isDigit(textArr[i]) && numConv > 0) {
                 index = Integer.valueOf(textArr[i]);
-                for (int j = 0; j < iLlave; j++) {
+                for (int j = 0; j < numConv; j++) {
                     index++;
                     if (index > 57) {
                         index = 48;
                     }
                 }
                 textArr[i] = (char) index;
-            } else if (Character.isDigit(textArr[i]) && iLlave < 0) {
+            } else if (Character.isDigit(textArr[i]) && numConv < 0) {
                 index = Integer.valueOf(textArr[i]);
-                for (int j = 0; j > iLlave; j--) {
+                for (int j = 0; j > numConv; j--) {
                     index--;
                     if (index < 48) {
                         index = 57;
                     }
                 }
                 textArr[i] = (char) index;
-            }
-        }
-
-        while (true) {
-            if (iLlave > alfabeto.length-1) {
-                iLlave -= alfabeto.length;
-            } else if (iLlave < 0){
-                iLlave += alfabeto.length;
             } else {
-                break;
-            }
-        }
-
-        for (int i = 0; i < textArr.length; i++) {
-            for (int j = 0; j < alfabeto.length; j++) {
-                if (textArr[i] == alfabeto[j] || textArr[i] == alfabetoMayus[j]) {
-                    if (textArr[i] == alfabeto[j]) {
-                        alf = alfabeto;
-                    } else {
-                        alf = alfabetoMayus;
+                iLlave = ajustar(iLlave, alfabeto.length);
+                for (int j = 0; j < alfabeto.length; j++) {
+                    if (textArr[i] == alfabeto[j] || textArr[i] == alfabetoMayus[j]) {
+                        alf = textArr[i] == alfabeto[j] ? alfabeto : alfabetoMayus;
+                        index = j + iLlave;
+                        textArr[i] = alf[ajustar(index, alf.length)];
+                        break;
                     }
-                    index = j + iLlave;
-                    if (!cambio(textArr, alf, i, index) && index > alf.length-1) {
-                        cambio(textArr, alf, i, index-alf.length);
-                    } else if (!cambio(textArr, alf, i, index) && index < 0) {
-                        cambio(textArr, alf, i, index+alf.length);
-                    }
-                    break;
                 }
             }
         }
@@ -83,13 +64,13 @@ public class Codificador {
         return new String(textArr);
     }
 
-    private boolean cambio(char[] arr, char[] alf, int i, int index) {
-        try {
-            arr[i] = alf[index];
-            return true;
-
-        } catch (Exception e) {
-            return false;
+    private int ajustar(int num, int length) {
+        while (num > length-1) {
+            num -= length;
         }
+        while (num < 0) {
+            num += length;
+        }
+        return num;
     }
 }
