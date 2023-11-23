@@ -1,13 +1,8 @@
-var textoOriginal = document.getElementById("message");
-
-//console.log("textoOriginal: " + textoOriginal.value);
-alert(textoOriginal);
-
 function isDigit(c) {
     return c >= '0' && c <= '9';
 }
 
-function codificaDecodifica(iLlave, text) {
+function codificaDecodifica(text, iLlave) {
     var alfabeto = 'abcdefghijklmnopqrstuvwxyz';
     var alfabetoMayus = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -37,4 +32,12 @@ function codificaDecodifica(iLlave, text) {
     }
 
     return resultado;
+}
+
+function procesarFormulario() {
+    var textoOriginal = document.getElementById("message").value;
+    var llave = parseInt(document.getElementById("key").value);
+
+    var resultado = codificaDecodifica(textoOriginal, llave, event);
+    document.getElementById("resultado").value = resultado;
 }

@@ -11,17 +11,35 @@ html {
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #343333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: -130px;
+    font-size: 300%;
 }
 
 /* Estilos para la etiqueta de formulario */
 form {
-    margin: 80px;
+    color: white;
+    background-color: #00000063;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     font-family: Arial, sans-serif;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
 }
 
 /* Estilos para las etiquetas de etiqueta y entrada */
@@ -29,12 +47,14 @@ label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+    text-align: center;
 }
 
 textarea {
+    resize: none;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ff0000;
+    border-radius: 7px;
+    border: 1px solid #000000;
     width: 100%;
     font-size: 16px;
     margin-bottom: 20px;
@@ -43,14 +63,11 @@ textarea {
 input#key{
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ff0000;
+    border: 1px solid #000000;
     width: 10%;
     font-size: 16px;
     margin-bottom: 20px;
-}
-
-textarea#message {
-    height: 150px;
+    text-align: center;
 }
 
 
@@ -75,13 +92,10 @@ input[type="button"]:active {
     transform: translateY(4px);
 }
 
-/* Estilos para mensajes de error */
-input:invalid,
-textarea:invalid {
-    border: 1px solid red;
-}
 
-input:valid,
-textarea:valid {
-    border: 1px solid #ccc;
+/*Quitar las flechitas de aumento y decremento en el input type number*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
