@@ -1,0 +1,87 @@
+/* Estilos globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para la etiqueta de formulario */
+form {
+    margin: 80px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para las etiquetas de etiqueta y entrada */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input#key{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    width: 10%;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+textarea#message {
+    height: 150px;
+}
+
+
+/* Estilos para el botón de envío */
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+input[type="button"]:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Estilos para mensajes de error */
+input:invalid,
+textarea:invalid {
+    border: 1px solid red;
+}
+
+input:valid,
+textarea:valid {
+    border: 1px solid #ccc;
+}
