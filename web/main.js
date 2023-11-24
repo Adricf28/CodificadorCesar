@@ -38,6 +38,6 @@ function procesarFormulario() {
     var textoOriginal = document.getElementById("message").value;
     var llave = parseInt(document.getElementById("key").value);
 
-    var resultado = codificaDecodifica(textoOriginal, llave, event);
+    var resultado = codificaDecodifica(textoOriginal, llave);
     document.getElementById("resultado").value = resultado;
 }
